@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <title>Final Exam Needed - Full Year Course</title>
+
+  <style>
+    
+    .sem1 {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0rem;
+        gap: 1rem;
+    }
+    .sem2 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .card_input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .results {
+        display: flex;
+        flex-direction: column;
+        max-width: 45rem;
+    }
+    input {
+        text-align: right;
+    }
+    #se2 {
+    font-weight: bolder;
+    }
+    .error {
+        display:none;
+        color: red;
+        font-size: 2rem;
+    }
+    p {
+        display: none;
+        font-style: italic;
+        text-align: left;
+    }
+    nav{
+        display:none;
+    }
+
+
+ 
+
+  </style>
+</head>
+<body>
+  <nav role="navigation">
+    <a href="./index.html">Home</a>
+    <a href="./finalYear.html">Year Course</a>
+  </nav>
+  <main role="main">
+    <h1>Final Exam Grade Calculator</h1>
+    <h2>for students of Abington Senior High School</h2>
+    <h3>Enter your current grades as percentages into the spaces below. Then, select the overall course grade you hope to earn in the dropdown menu at the bottom.</h3>
+    <div class="sem1">
+        <div class="card_input"><label>1st Marking Period: </label><div><input name="t1" id="t1"> %</div><div class="error" id="error_t1">* you must enter a percentage value.</div></div>
+        <div class="card_input"><label>2nd Marking Period: </label><div><input name="t2" id="t2"> %</div><div class="error" id="error_t2">* you must enter a percentage value.</div></div>
+        <div class="card_input"><label>Midterm Grade: </label><div><input name="se1" id="se1"> %</div><div class="error" id="error_se1">* you must enter a percentage value.</div></div>
+    </div>
+    <div class="sem2">
+        <div class="card_input"><label>3rd Marking Period: </label><div><input name="t3" id="t3"> %</div><div class="error" id="error_t3">* you must enter a percentage value.</div></div>
+        <div class="card_input"><label>4th Marking Period: </label><div><input name="t4" id="t4"> %</div><div class="error" id="error_t4">* you must enter a percentage value.</div></div>
+    </div>
+    <div class="results">
+        <div>
+            <label>What is your overall course grade target?</label>
+            <select name="goal" id="goal">
+                <option value="0">Select</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+                <option value="4">D</option>
+                <option value="5">E</option>
+            </select>
+        </div>
+        <div>
+            <p>You currently have an overall grade of <span id="grade_current"></span> %.</p>
+        </div>
+        <div>
+            <p>You need to score <span id="se2"></span> % or higher on your final exam<span id="comment"></span></p>
+        </div>
+    </div>
+  </main>
+  <footer role="contentinfo">developed by William Anderson</footer>
+
+  <script>
+
+    document.getElementById("goal").addEventListener("change",function () {validateEntries();});
+    document.getElementById("t1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
+    document.getElementById("t2").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
+    document.getElementById("se1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
+    document.getElementById("t3").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
+    document.getElementById("t4").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
+
+    validateEntries = function () {
+        const Entries = ["t1", "t2", "se1", "t3", "t4"];
+        let count = 0;
+        for (let x in Entries) {
+            let elem = document.getElementById(Entries[x]).value;
+            if (elem.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/)) {
+                let target = "error_";
+                target = target.concat(Entries[x]);
+                document.getElementById(target).style.display = "none";
+            } else {
+                let target = "error_";
+                target = target.concat(Entries[x]);
+                document.getElementById(target).style.display = "block";
+                document.getElementById("goal").value = 0;
+                document.getElementsByTagName("p")[0].style.display = "none";
+                document.getElementsByTagName("p")[1].style.display = "none";
+                count += 1;
+            }
+        }
+        if (count == 0) {
+            calcFinal ();
+        }
+    }
+
+    calcFinal = function () {
+        t1 = Number(document.getElementById("t1").value);
+        t2 = Number(document.getElementById("t2").value);
+        se1 = Number(document.getElementById("se1").value);
+        t3 = Number(document.getElementById("t3").value);
+        t4 = Number(document.getElementById("t4").value);
+        val = Number(document.getElementById("goal").value);
+
+        culmGr = 0.2*(t1+t2+t3+t4)+0.1*se1;
+        grCurr = 0.2*(t1+t2)+0.1*(se1)+0.25*(t3+t4);
+        grCurr = Number(grCurr).toFixed(2);
+        let lowest = "F";
+
+        if (culmGr >= 89.6) {
+            lowest = "an A";
+        } else if (culmGr >= 79.6) {
+            lowest = "a B";
+        } else if (culmGr >= 69.6) {
+            lowest = "a C";
+        } else if (culmGr >= 59.6) {
+            lowest = "a D";
+        } else if (culmGr >= 39.6) {
+            lowest = "an E";
+        }
+
+        switch (val) {
+            case 0:
+                alert("Select a target grade.");
+                break;
+            case 1:
+                final = (89.5-culmGr)/0.1;
+                break;
+            case 2:
+                final = (79.5-culmGr)/0.1;
+                break;
+            case 3:
+                final = (69.5-culmGr)/0.1;
+                break;
+            case 4:
+                final = (59.5-culmGr)/0.1;
+                break;
+            case 5:
+                final = (39.5-culmGr)/0.1;
+        };
+        final = Number(final).toFixed(2);
+        
+        document.getElementsByTagName("p")[0].style.display = "block";
+        document.getElementsByTagName("p")[1].style.display = "block";
+        document.getElementById("grade_current").innerHTML = grCurr;
+        document.getElementById("se2").innerHTML = final;
+        if (final < 0) {
+            document.getElementById("comment").innerHTML = "! You cannot possibly get less than " + lowest + ".";
+        } else if (final > 100) {
+            document.getElementById("comment").innerHTML = ". Sorry, it is not possible for you to finish with this grade.";
+        } else {
+            document.getElementById("comment").innerHTML = ".";
+
+        }
+    }
+  </script>
+</body>
+</html>
