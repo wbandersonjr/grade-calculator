@@ -86,10 +86,10 @@
             </select>
         </div>
         <div>
-            <p>You currently have an overall grade of <span id="grade_current"></span> %.</p>
+            <p id="grOverall">You currently have an overall grade of <span id="grade_current"></span> %.</p>
         </div>
         <div>
-            <p>You need to score <span id="se2"></span> % or higher on your final exam<span id="comment"></span></p>
+            <p id="scoreFinal">You need to score <span id="se2"></span> % or higher on your final exam<span id="comment"></span></p>
         </div>
     </div>
   </main>
@@ -174,8 +174,8 @@
         };
         final = Number(final).toFixed(2);
         
-        document.getElementsByTagName("p")[0].style.display = "block";
-        document.getElementsByTagName("p")[1].style.display = "block";
+        document.getElementById("grOverall").style.display = "block";
+        document.getElementById("scoreFinal").style.display = "block";
         document.getElementById("grade_current").innerHTML = grCurr;
         document.getElementById("se2").innerHTML = final;
         if (final < 0) {
