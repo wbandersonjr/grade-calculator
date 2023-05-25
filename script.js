@@ -1,10 +1,10 @@
 
 alert("entered scriptJS");
-// document.getElementById("goal").addEventListener("change",function () {alert('goal changed event'); validateEntries();});
+document.getElementById("goal").addEventListener("change",function () {alert('goal changed event'); validateEntries();});
 
 
-// validateEntries = function () {
-//     alert('entered validateEntries');
+validateEntries = function () {
+    alert('entered validateEntries');
 //     const Entries = ["t1", "t2", "se1", "t3", "t4"];
 //     let count = 0;
 //     alert(Entries);
@@ -30,7 +30,7 @@ alert("entered scriptJS");
 //     if (count == 0) {
 //         calcFinal ();
 //     };
-// };
+};
 
 // calcFinal = function () {
 //     alert('entered calcfinal');
