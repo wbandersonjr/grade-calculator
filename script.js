@@ -5,13 +5,13 @@ document.getElementById("goal").addEventListener("change",function () {alert('go
 
 validateEntries = function () {
     alert('entered validateEntries');
-//     const Entries = ["t1", "t2", "se1", "t3", "t4"];
-//     let count = 0;
-//     alert(Entries);
-//     for (let x in Entries) {
-//         alert('running for in loop');
-//         let elem = document.getElementById(Entries[x]).value;
-//         alert(elem);
+    const Entries = ["t1", "t2", "se1", "t3", "t4"];
+    let count = 0;
+    alert(Entries);
+    for (let x in Entries) {
+        alert('running for in loop');
+        let elem = document.getElementById(Entries[x]).value;
+        alert(elem);
 //         if (elem.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/)) {
 //             let target = "error_";
 //             target = target.concat(Entries[x]);
@@ -29,7 +29,7 @@ validateEntries = function () {
 //     };
 //     if (count == 0) {
 //         calcFinal ();
-//     };
+    };
 };
 
 // calcFinal = function () {
