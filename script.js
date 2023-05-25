@@ -29,7 +29,7 @@ validateEntries = function () {
     //         document.getElementsByTagName("p")[1].style.display = "none";
     //         count += 1;
     //     };
-    // };
+    };
     if (count == 0) {
         alert("ready to call calcFinal");
         calcFinal ();
@@ -106,4 +106,4 @@ document.getElementById("t1").addEventListener("change", function () {if(documen
 document.getElementById("t2").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
 document.getElementById("se1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
 document.getElementById("t3").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
-document.getElementById("t4").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
+document.getElementById("t4").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}});
