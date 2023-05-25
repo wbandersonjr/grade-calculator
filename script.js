@@ -1,28 +1,20 @@
 
-alert("entered scriptJS");
-document.getElementById("goal").addEventListener("change",function () {alert('goal changed event'); validateEntries();});
+document.getElementById("goal").addEventListener("change",function () {validateEntries();});
 
 
 validateEntries = function () {
-    alert('entered validateEntries');
     const Entries = ["t1", "t2", "se1", "t3", "t4"];
     let count = 0;
-    alert(Entries);
     for (let x in Entries) {
-        alert('running for in loop');
         let elem = document.getElementById(Entries[x]).value;
-        alert(elem);
 // regex lookback not working on mobile browsers
 
         let regex = /^(\d*)(\.?)(\d+)$/;
-        alert(regex.test(elem));
         if (regex.test(elem)) {
-            alert('passed regex test');
             let target = "error_";
             target = target.concat(Entries[x]);
             document.getElementById(target).style.display = "none";
         } else {
-            alert('entered false snippet or regex check');
             let target = "error_";
             target = target.concat(Entries[x]);
             document.getElementById(target).style.display = "block";
@@ -33,13 +25,11 @@ validateEntries = function () {
         };
     };
     if (count == 0) {
-        alert("ready to call calcFinal");
         calcFinal ();
     };
 };
 
 calcFinal = function () {
-    alert('entered calcfinal');
     t1 = Number(document.getElementById("t1").value);
     t2 = Number(document.getElementById("t2").value);
     se1 = Number(document.getElementById("se1").value);
@@ -50,8 +40,6 @@ calcFinal = function () {
     culmGr = 0.2*(t1+t2+t3+t4)+0.1*se1;
     grCurr = 0.2*(t1+t2)+0.1*(se1)+0.25*(t3+t4);
     grCurr = Number(grCurr).toFixed(2);
-    alert(culmGr);
-    alert(grCurr);
     let lowest = "F";
 
     if (culmGr >= 89.6) {
@@ -65,10 +53,8 @@ calcFinal = function () {
     } else if (culmGr >= 39.6) {
         lowest = "an E";
     };
-    alert(lowest);
     switch (val) {
         case 0:
-            alert("Select a target grade.");
             break;
         case 1:
             final = (89.5-culmGr)/0.1;
