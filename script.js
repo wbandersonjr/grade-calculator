@@ -12,21 +12,21 @@ validateEntries = function () {
         alert('running for in loop');
         let elem = document.getElementById(Entries[x]).value;
         alert(elem);
-        if (elem.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/)) {
-            alert('passed regex test');
-            let target = "error_";
-            target = target.concat(Entries[x]);
-            document.getElementById(target).style.display = "none";
-        } else {
-            alert('entered false snippet or regex check');
-            let target = "error_";
-            target = target.concat(Entries[x]);
-            document.getElementById(target).style.display = "block";
-            document.getElementById("goal").value = 0;
-            document.getElementsByTagName("p")[0].style.display = "none";
-            document.getElementsByTagName("p")[1].style.display = "none";
-            count += 1;
-        };
+        // if (elem.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/)) {
+        //     alert('passed regex test');
+        //     let target = "error_";
+        //     target = target.concat(Entries[x]);
+        //     document.getElementById(target).style.display = "none";
+        // } else {
+        //     alert('entered false snippet or regex check');
+        //     let target = "error_";
+        //     target = target.concat(Entries[x]);
+        //     document.getElementById(target).style.display = "block";
+        //     document.getElementById("goal").value = 0;
+        //     document.getElementsByTagName("p")[0].style.display = "none";
+        //     document.getElementsByTagName("p")[1].style.display = "none";
+        //     count += 1;
+        // };
     };
     if (count == 0) {
         alert("ready to call calcFinal");
