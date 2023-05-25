@@ -1,4 +1,5 @@
 
+document.getElementById("body").onload = function () {alert("body loaded");};
 document.getElementById("goal").addEventListener("change",function () {alert('goal changed event'); validateEntries();});
 document.getElementById("t1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
 document.getElementById("t2").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
