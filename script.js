@@ -14,7 +14,7 @@ validateEntries = function () {
         alert(elem);
 // regex lookback not working on mobile browsers
 
-        let regex = /^(\d*)((\.?)(?=\d))?(\d*)$/;
+        let regex = /^(\d*)(\.?)(\d+)$/;
         alert(regex.test(elem));
         if (regex.test(elem)) {
             alert('passed regex test');
