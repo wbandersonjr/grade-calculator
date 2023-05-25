@@ -1,5 +1,5 @@
 
-document.getElementById("goal").addEventListener("change",function () {validateEntries();});
+document.getElementById("goal").addEventListener("change",function () {alert('goal changed event'); validateEntries();});
 document.getElementById("t1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
 document.getElementById("t2").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
 document.getElementById("se1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries();}}); 
@@ -10,12 +10,14 @@ validateEntries = function () {
     const Entries = ["t1", "t2", "se1", "t3", "t4"];
     let count = 0;
     for (let x in Entries) {
+        alert('running for in loop');
         let elem = document.getElementById(Entries[x]).value;
         if (elem.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/)) {
             let target = "error_";
             target = target.concat(Entries[x]);
             document.getElementById(target).style.display = "none";
         } else {
+            alert('entered false snippet or regex check');
             let target = "error_";
             target = target.concat(Entries[x]);
             document.getElementById(target).style.display = "block";
@@ -31,6 +33,7 @@ validateEntries = function () {
 }
 
 calcFinal = function () {
+    alert('entered calcfinal');
     t1 = Number(document.getElementById("t1").value);
     t2 = Number(document.getElementById("t2").value);
     se1 = Number(document.getElementById("se1").value);
