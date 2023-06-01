@@ -125,3 +125,15 @@ footer {
 .description {
     font-size: 1.2rem;
 }
+.output {
+    border: 1px solid grey;
+    border-radius: 15px;
+    background-color: #f38c8f6c;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 35rem;
+    align-self: center;
+    display: none;
+}

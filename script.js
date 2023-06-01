@@ -13,9 +13,7 @@ validateEntries = function (which) {
             let target = "error_";
             target = target.concat(Grades[i][0]);
             document.getElementById(target).style.display = "block";
-            document.getElementById("goal").value = 0;
-            document.getElementsByTagName("p")[0].style.display = "none";
-            document.getElementsByTagName("p")[1].style.display = "none";
+            document.getElementById("output").style.display = "none";
             count += 1;
         };        
     }
@@ -97,8 +95,7 @@ calcFinal = function (which) {
     };
     final = Number(final).toFixed(2);
     
-    document.getElementById("grOverall").style.display = "block";
-    document.getElementById("scoreFinal").style.display = "block";
+    document.getElementById("output").style.display = "block";
     document.getElementById("grade_current").innerHTML = grCurr;
     document.getElementById("se").innerHTML = final;
     if (final < 0) {
@@ -109,6 +106,7 @@ calcFinal = function (which) {
         document.getElementById("comment").innerHTML = ".";
 
     };
+    document.getElementById("scoreFinal").scrollIntoView();
 };
 
 changeExempt = function () {

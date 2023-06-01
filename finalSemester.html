@@ -33,9 +33,9 @@
     }
     
     p {
-        display: none;
         font-style: italic;
         text-align: left;
+        margin: 0.5rem;
     }
 
 
@@ -61,7 +61,6 @@
         <div class="card_input"><label>2nd Half of Semester: </label><div><input class="grade" name="h2" id="h2"> %</div><div class="error" id="error_h2">* enter a value between 0-100%.</div></div>
     </div>
     <div class="btn_main clrForm" id="clrForm">Clear Form</div>
-    <div class="results">
         <div>
             <label>What is your overall course grade target?</label>
             <select name="goal" id="goal">
@@ -73,13 +72,10 @@
                 <option value="5">E</option>
             </select>
         </div>
-        <div>
+        <div class="output" id="output">
             <p id="grOverall">You currently have an overall grade of <span id="grade_current"></span> %.</p>
-        </div>
-        <div>
             <p id="scoreFinal">You need to score <span id="se"></span> % or higher on your semester exam<span id="comment"></span></p>
         </div>
-    </div>
   </main>
   <footer role="contentinfo">developed by William Anderson</footer>
 
