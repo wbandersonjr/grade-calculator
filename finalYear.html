@@ -105,7 +105,7 @@
     document.getElementById("se1").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
     document.getElementById("t3").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}}); 
     document.getElementById("t4").addEventListener("change", function () {if(document.getElementById("goal").value!=0){validateEntries(1);}});
-    document.getElementById("se1_exempt").addEventListener("change",function () {changeExempt ();validateEntries (1);});
+    document.getElementById("se1_exempt").addEventListener("change",function () {changeExempt ();if(document.getElementById("goal").value!=0){validateEntries (1);}});
     document.getElementById("clrForm").addEventListener("click", function () {location.reload();});
     
 
